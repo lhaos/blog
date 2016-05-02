@@ -63,8 +63,8 @@ header("Content-type: text/html; charset=utf-8");
 
 
     define("CLASS_PATH", LOCAL_PATH . "src/");
-    define("APPLICATION", LOCAL_PATH . "admin/applicatio$n/");
-    define("CONFIG_PATH", LOCAL_PATH, "config/");
+    define("APPLICATION", LOCAL_PATH . "admin/application/");
+    define("CONFIG_PATH", LOCAL_PATH . "config/");
 
     spl_autoload_register('autoLoad');
 
