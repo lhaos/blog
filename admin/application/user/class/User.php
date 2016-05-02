@@ -10,8 +10,7 @@ class User extends Mapper{
 
         try{
             $conn = Conection::con();
-            $stat = $conn->prepare("select * from user where actived = 1 and (username = ? or email = ?) and
-                                    password = md5(?) limit 1");
+            $stat = $conn->prepare("select * from `user` where (username = ? or email = ?) and `password`= md5(?) and actived = 1 limit 1");
             $stat->bindValue(1, $user);
             $stat->bindValue(2, $user);
             $stat->bindValue(3, $password);
@@ -34,7 +33,10 @@ class User extends Mapper{
 
         }catch (Exception $e){
             return $e->getMessage();
-        }//fecha catch
+        } catch (PDOException $pe) {
+            echo $pe->getCode() . " - " . $pe->getMessage();
+            die;
+        }
 
     }//fecha metodo de login
 

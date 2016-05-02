@@ -4,7 +4,7 @@ include_once '../config/app.php';
     if(is_array($_POST) && count($_POST) > 0){
 
         if($_POST["action"] == "login"){
-            $responseUser = User::login($_POST['user'] && $_POST['password']);
+            $responseUser = User::login($_POST['user'], $_POST['password']);
 
             if($responseUser === true){
                 header("location:".GLOBAL_PATH."admin/application/dashboard/");
